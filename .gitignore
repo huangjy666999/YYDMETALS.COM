@@ -1,2 +1,9 @@
 node_modules/
 .env
+
+# script backup folders
+_backup_*/
+_originals_*/
+_local_backup_*/
+*.bak
+
