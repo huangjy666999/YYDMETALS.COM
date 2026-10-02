@@ -1,6 +1,44 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Recycle, Globe2, Factory, ShieldCheck } from 'lucide-react'
+import { ArrowRight, Recycle, Globe2, Factory, Beaker, Package, Wrench, Settings } from 'lucide-react'
 import { images } from '../lib/images'
+
+const capabilities = [
+  {
+    icon: Factory,
+    title: 'Ferroalloy & Metal Production',
+    body: 'We produce and process ferroalloys and metal products for industrial applications. Our production capabilities allow us to manufacture materials with different chemical compositions, specifications and performance requirements.',
+  },
+  {
+    icon: Beaker,
+    title: 'Customized Alloy & Metal Products',
+    body: 'With our own metallurgical engineering and technical team, we can develop and manufacture customized alloy and metal products according to specific customer requirements. We work with customers on chemical composition, product specifications, raw material selection and production processes to develop suitable metallurgical solutions for specific applications.',
+  },
+  {
+    icon: Globe2,
+    title: 'Global Mineral Resource Sourcing',
+    body: 'We source metal ores and mineral resources worldwide and apply metallurgical processes to extract and recover valuable metals from these resources. Our capabilities enable us to turn mineral resources into valuable metal products and industrial raw materials, creating greater value through resource recovery and metallurgical processing.',
+  },
+  {
+    icon: Recycle,
+    title: 'Global Metal Scrap & Industrial Residue Recovery',
+    body: 'We purchase and process metal-bearing scrap, industrial residues, slags, powders and other secondary resources from global markets. Through sorting, processing and metallurgical recovery, we seek to recover valuable metals from secondary resources and return them to productive use.',
+  },
+  {
+    icon: Package,
+    title: 'Metal Products Supply',
+    body: 'We supply ferroalloys, metals, mineral materials and processed metal products to industrial customers worldwide. In addition to standard products, we can provide customized materials and alloy products developed according to specific customer requirements.',
+  },
+  {
+    icon: Wrench,
+    title: 'Metallurgical Technology Services',
+    body: 'Our metallurgical technical team provides smelting technology, process development, raw material optimization, metal recovery solutions and production process improvement. We can also support customers in developing and producing special-specification alloys and metal products.',
+  },
+  {
+    icon: Settings,
+    title: 'Metallurgical Equipment & Production Solutions',
+    body: 'We provide metallurgical production equipment and related technical solutions for smelting, alloy production, metal recovery, material processing and recycling projects. Our technical capabilities allow us to assist customers from process design and equipment selection to production implementation and process optimization.',
+  },
+]
 
 const products = [
   { name: 'Ferrosilicon', to: '/ferrosilicon', img: images.ferrosilicon, desc: 'Alloy of iron and silicon for deoxidation and alloying in steel and cast iron production.' },
@@ -27,13 +65,6 @@ const materials = [
   { img: images.antimonyOre, title: 'Antimony Ore', desc: 'Antimony-bearing ore and concentrates for smelting and refining.' },
 ]
 
-const stats = [
-  { num: '40+', label: 'Countries Sourced' },
-  { num: '500+', label: 'Supplier Partners' },
-  { num: '15+', label: 'Years Experience' },
-  { num: '99.5%', label: 'On-Time Delivery' },
-]
-
 export default function Home() {
   return (
     <>
@@ -42,9 +73,9 @@ export default function Home() {
         <div className="hero__bg" style={{ backgroundImage: `url(${images.heroMolten})` }} />
         <div className="hero__overlay" />
         <div className="container hero__content">
-          <div className="hero__tagline">YYD METALS</div>
+          <div className="hero__tagline">YYD METALS &amp; MINERALS INDUSTRIES</div>
           <h1 className="hero__title">
-            GLOBAL FERROALLOYS<br />& <span>METAL RESOURCES</span>
+            Metals, Minerals, Alloys<br />&amp; <span>Metallurgical Solutions</span>
           </h1>
           <div className="hero__sub">Supply. Source. Process. Trade.</div>
           <div className="hero__actions">
@@ -54,32 +85,82 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Intro band */}
+      {/* Who we are */}
       <section className="section">
         <div className="container">
-          <div style={{ maxWidth: '760px' }}>
+          <div className="prose" style={{ maxWidth: '820px' }}>
             <div className="eyebrow">Who We Are</div>
-            <h2 className="section-title">A global partner in ferroalloys, metals, minerals, and industrial resources.</h2>
-            <p className="section-intro">
-              YYD METALS & MINERALS INDUSTRIES LTD. supplies, sources, processes, and trades
-              ferroalloys and metal-bearing resources for industrial consumers worldwide. From
-              primary alloys to secondary scrap and residues, we connect material holders with
-              the refineries, foundries, and mills that need them.
+            <h2 className="section-title">Metals, Minerals, Alloys &amp; Metallurgical Solutions</h2>
+            <p>
+              <strong>YYD Metals &amp; Minerals Industries</strong> is a global metals and minerals company
+              specializing in the production, processing, sourcing and supply of ferroalloys, metal products,
+              mineral resources and secondary metal materials.
             </p>
-          </div>
-
-          <div className="stats-row" style={{ marginTop: '48px' }}>
-            {stats.map(s => (
-              <div key={s.label} className="stat">
-                <div className="stat__num">{s.num}</div>
-                <div className="stat__label">{s.label}</div>
-              </div>
-            ))}
+            <p>
+              We combine metallurgical expertise, production capabilities and global resource sourcing to
+              provide materials, customized products and technical solutions for industrial customers worldwide.
+            </p>
+            <p>
+              Our activities cover the value chain from mineral and metal resource sourcing to metallurgical
+              processing, metal recovery, alloy production, customized manufacturing and technical services.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Core ferroalloys - real product photography */}
+      {/* Our capabilities */}
+      <section className="section" style={{ background: 'var(--charcoal-800)', borderTop: '1px solid var(--charcoal-600)', borderBottom: '1px solid var(--charcoal-600)' }}>
+        <div className="container">
+          <div className="eyebrow">Our Capabilities</div>
+          <h2 className="section-title">What We Do</h2>
+          <p className="section-intro" style={{ marginBottom: '40px' }}>
+            Seven integrated capabilities, from mineral resources and secondary materials through to
+            finished alloys and metallurgical technology.
+          </p>
+
+          <div className="card-grid card-grid--2">
+            {capabilities.map(cap => {
+              const Icon = cap.icon
+              return (
+                <div key={cap.title} className="resource-card">
+                  <div className="resource-card__icon"><Icon size={22} /></div>
+                  <h3>{cap.title}</h3>
+                  <p>{cap.body}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* From resources to metal products */}
+      <section className="section">
+        <div className="container">
+          <div className="feature-row">
+            <div className="prose">
+              <div className="eyebrow">From Resources to Metal Products</div>
+              <h2 className="section-title">Global resources, metallurgical technology, industrial production</h2>
+              <p>
+                YYD brings together global mineral resources, metal resources, metallurgical technology and
+                industrial production.
+              </p>
+              <p>
+                By integrating resource sourcing, mineral processing, metal recovery, alloy production, metal
+                processing and technical expertise, we help transform ores, raw materials and secondary
+                resources into valuable metal products and customized industrial materials.
+              </p>
+              <p>
+                We work with manufacturers, smelters, refineries, foundries, steel mills and other industrial
+                customers and partners worldwide, providing reliable materials, customized products and
+                practical metallurgical solutions.
+              </p>
+            </div>
+            <div className="feature-row__img" style={{ backgroundImage: `url(${images.productionWarehouse})` }} />
+          </div>
+        </div>
+      </section>
+
+      {/* Core ferroalloys */}
       <section className="section" style={{ background: 'var(--charcoal-800)', borderTop: '1px solid var(--charcoal-600)', borderBottom: '1px solid var(--charcoal-600)' }}>
         <div className="container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px', marginBottom: '40px' }}>
@@ -109,7 +190,7 @@ export default function Home() {
       {/* Resource categories */}
       <section className="section">
         <div className="container">
-          <div className="eyebrow">Metal Scrap & Resources</div>
+          <div className="eyebrow">Metal Scrap &amp; Resources</div>
           <h2 className="section-title">Resource Categories We Handle</h2>
           <p className="section-intro" style={{ marginBottom: '40px' }}>
             We source and process a wide range of metal-bearing secondary materials and industrial residues.
@@ -145,34 +226,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* What we do */}
-      <section className="section" style={{ background: 'var(--charcoal-800)', borderTop: '1px solid var(--charcoal-600)' }}>
-        <div className="container">
-          <div className="feature-row">
-            <div>
-              <div className="eyebrow">What We Do</div>
-              <h2 className="section-title">Supply. Source. Process. Trade.</h2>
-              <p className="section-intro" style={{ marginBottom: '24px' }}>
-                Four capabilities, one global network. We move ferroalloys and metal resources
-                from where they are to where they are needed.
-              </p>
-              <ul className="feature-list">
-                <li><Factory size={20} className="text-accent" /> <span><strong>Supply</strong> — Primary ferroalloys delivered to specification, on schedule.</span></li>
-                <li><Globe2 size={20} className="text-accent" /> <span><strong>Source</strong> — Global procurement of metal-bearing scrap and residues.</span></li>
-                <li><Recycle size={20} className="text-accent" /> <span><strong>Process</strong> — Sorting, upgrading, and preparing materials for consumption.</span></li>
-                <li><ShieldCheck size={20} className="text-accent" /> <span><strong>Trade</strong> — Reliable logistics and documentation across borders.</span></li>
-              </ul>
-            </div>
-            <div className="feature-row__img" style={{ backgroundImage: `url(${images.productionWarehouse})` }} />
-          </div>
-        </div>
-      </section>
-
-      {/* CTA band */}
+      {/* Closing line + CTA */}
       <section className="cta-band">
         <div className="container cta-band__inner">
           <div>
-            <h2>Have material to sell, or need a reliable supply?</h2>
+            <h2>YYD — Metals, Minerals, Alloys &amp; Metallurgical Solutions</h2>
             <p>Submit your material offer or request a quote — our team responds within 48 hours.</p>
           </div>
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
