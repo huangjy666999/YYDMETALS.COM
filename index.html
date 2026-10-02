@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/yyd-mark.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0e1014" />
+    <meta name="description" content="YYD METALS — Global ferroalloys and metal resources. Ferrosilicon, ferrophosphorus, ferrochrome, ferrosulfur. Supply. Source. Process. Trade." />
+    <title>YYD METALS — Global Ferroalloys &amp; Metal Resources</title>
+
+    <!-- Social preview. TODO: drop a 1200x630 image at public/images/og-cover.jpg,
+         then change the two og:image / twitter:image values below to /images/og-cover.jpg -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="YYD METALS" />
+    <meta property="og:title" content="YYD METALS — Global Ferroalloys &amp; Metal Resources" />
+    <meta property="og:description" content="Ferrosilicon, ferrophosphorus, ferrochrome and ferrosulfur. Supply, source, process and trade." />
+    <meta property="og:image" content="/yyd-mark.svg" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="YYD METALS — Global Ferroalloys &amp; Metal Resources" />
+    <meta name="twitter:image" content="/yyd-mark.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Saira+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+    <style>
+      /* Without this, a JS failure leaves a fully black page with no explanation.
+         React replaces this content on mount. */
+      .app-fallback {
+        position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+        text-align: center; padding: 32px; font-family: 'Inter', system-ui, sans-serif;
+      }
+      .app-fallback__inner { max-width: 560px; }
+      .app-fallback__mark {
+        font-family: 'Saira Condensed', 'Inter', sans-serif; font-weight: 800; font-size: 2rem;
+        letter-spacing: .22em; color: #b8964e; margin-bottom: 18px;
+      }
+      .app-fallback__spinner {
+        width: 26px; height: 26px; margin: 0 auto 18px; border-radius: 50%;
+        border: 2px solid #323a45; border-top-color: #b8964e; animation: app-spin .8s linear infinite;
+      }
+      @keyframes app-spin { to { transform: rotate(360deg); } }
+      .app-fallback__text { color: #9ba4b0; font-size: .95rem; line-height: 1.65; }
+      .app-fallback__text strong { color: #e8ebef; }
+      .app-fallback__hint { margin-top: 10px; font-size: .8rem; color: #6b7684; }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="app-fallback">
+        <div class="app-fallback__inner">
+          <div class="app-fallback__mark">YYD METALS</div>
+          <div class="app-fallback__spinner"></div>
+          <p class="app-fallback__text"><strong>Loading&hellip;</strong><br />正在加载&hellip;</p>
+          <p class="app-fallback__hint">If this message stays on screen, please refresh the page.</p>
+        </div>
+      </div>
+    </div>
+    <noscript>
+      <div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:32px;font-family:system-ui,sans-serif;color:#c9ced6">
+        <div>
+          <div style="font-size:1.6rem;letter-spacing:.2em;color:#b8964e;margin-bottom:14px">YYD METALS</div>
+          <p>This site requires JavaScript. Please enable it and reload.<br />本站需要启用 JavaScript 才能浏览。</p>
+        </div>
+      </div>
+    </noscript>
+    <script>
+      // Safety net: if the app has not mounted after 8s, show a readable message
+      // instead of an empty (black) page.
+      window.setTimeout(function () {
+        var root = document.getElementById('root');
+        if (!root || root.childElementCount > 0) return;
+        var box = document.createElement('div');
+        box.className = 'app-fallback';
+        box.innerHTML =
+          '<div class="app-fallback__inner">' +
+          '<div class="app-fallback__mark">YYD METALS</div>' +
+          '<p class="app-fallback__text"><strong>The page could not start.</strong><br />' +
+          '页面未能启动。请刷新重试；若仍无法打开，请发邮件至 ' +
+          '<a style="color:#b8964e" href="mailto:info@yydmetals.com">info@yydmetals.com</a>。</p>' +
+          '<p class="app-fallback__hint">Please refresh the page or contact us by email.</p>' +
+          '</div>';
+        root.appendChild(box);
+      }, 8000);
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
