@@ -2,13 +2,15 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Factory, Warehouse } from 'lucide-react'
 import { images } from '../lib/images'
 
-// NOTE: the "file" values below match the real file names in public/videos/.
+// NOTE: the "file" values below match the real file names in public/videos/,
+// including capital letters and spaces. The spaces are encoded as %20 so the
+// browser requests the file correctly (a raw space in a URL is invalid).
 const videos = [
   {
     title: 'Electric Arc Furnace Production',
     titleCn: '电弧炉生产',
     description: 'Electric arc furnace operations: scrap charging, melting and high-temperature alloy production.',
-    file: '/videos/Electric-Arc-Furnace-Production.mp4',
+    file: '/videos/Electric%20Arc%20Furnace%20Production%20Video.mp4',
     poster: images.production1,
     meta: 'Production Process',
   },
@@ -16,40 +18,24 @@ const videos = [
     title: 'Blast Furnace Production',
     titleCn: '高炉生产',
     description: 'Blast furnace smelting and continuous tapping of molten metal for downstream processing.',
-    file: '/videos/Blast-furnace-production.mp4',
-    poster: images.production1,
+    file: '/videos/Blast%20furnace%20production%20video.mp4',
+    poster: images.production2,
     meta: 'Production Process',
   },
   {
     title: 'Reverberatory Furnace Production',
     titleCn: '反射炉生产',
     description: 'Reverberatory furnace operations used in metal and alloy melting and refining.',
-    file: '/videos/Reverberatory-furnace-production.mp4',
-    poster: images.factoryFloor,
+    file: '/videos/Reverberatory%20furnace%20production%20video.mp4',
+    poster: images.production3,
     meta: 'Production Process',
   },
   {
     title: 'Medium-Frequency Induction Furnace',
     titleCn: '中频炉生产',
     description: 'Medium-frequency induction furnace melting for precise alloy composition control.',
-    file: '/videos/medium-frequency-furnace-production.mp4',
+    file: '/videos/Video%20of%20medium-frequency%20furnace%20production.mp4',
     poster: images.ferroalloyBriquettes,
-    meta: 'Production Process',
-  },
-  {
-    title: 'Electric Arc Furnace - Second View',
-    titleCn: '电弧炉生产（二）',
-    description: 'A second look at electric arc furnace operations, showing tapping and molten metal handling.',
-    file: '/videos/Electric-Arc-Furnace%202.mp4',
-    poster: images.moltenPouring,
-    meta: 'Production Process',
-  },
-  {
-    title: 'Ferrosilicon Production',
-    titleCn: '硅铁生产',
-    description: 'Ferrosilicon production: raw material charging, furnace operation and casting of the finished alloy.',
-    file: '/videos/Ferrosilicon-production2.mp4',
-    poster: images.ferrosilicon,
     meta: 'Production Process',
   },
 ]

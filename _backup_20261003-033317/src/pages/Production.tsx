@@ -17,7 +17,7 @@ const videos = [
     titleCn: '高炉生产',
     description: 'Blast furnace smelting and continuous tapping of molten metal for downstream processing.',
     file: '/videos/Blast-furnace-production.mp4',
-    poster: images.production1,
+    poster: images.production2,
     meta: 'Production Process',
   },
   {
@@ -25,7 +25,7 @@ const videos = [
     titleCn: '反射炉生产',
     description: 'Reverberatory furnace operations used in metal and alloy melting and refining.',
     file: '/videos/Reverberatory-furnace-production.mp4',
-    poster: images.factoryFloor,
+    poster: images.production3,
     meta: 'Production Process',
   },
   {

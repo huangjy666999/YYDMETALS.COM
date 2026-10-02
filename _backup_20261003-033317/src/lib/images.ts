@@ -50,10 +50,9 @@ export const images = {
   // capital letters and spaces. Do not "tidy" them: on the deployed server the
   // paths are case-sensitive, and the files really are named like this.
   ferrosilicon: '/images/products/Ferrosilicon.jpg',
-  ferrosilicon2: '/images/products/Ferrosilicon2.jpg',
   ferrosiliconHighGrade: '/images/products/High-silicon ferrosilicon.jpg',
 
-  ferrochrome: '/images/products/Ferrochrome.jpg',
+  ferrochrome: '/images/products/Ferrochrome.png',
 
   ferrophosphorus1: '/images/products/Ferrophosphorus.jpg',
   ferrophosphorus2: '/images/products/Ferrophosphorus6.jpg',
@@ -76,8 +75,9 @@ export const images = {
   antimonyOre: '/images/resources/antimony-ore.jpg',
 
   // ----------------- PRODUCTION (public/images/production/) -----------------
-  // production-2.jpg and production-3.jpg were removed on purpose, so the two
-  // video posters use these stills instead.
+  // Also lower case with hyphens - verified against the repository listing.
   production1: '/images/production/production-1.jpg',
+  production2: '/images/production/production-2.jpg',
+  production3: '/images/production/production-3.jpg',
   productionWarehouse: '/images/production/warehouse.jpg',
 }
