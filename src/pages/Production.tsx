@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Factory, Play, Warehouse } from 'lucide-react'
+import { ArrowRight, Factory, Warehouse } from 'lucide-react'
 import { images } from '../lib/images'
 
 // NOTE: the "file" values below match the real file names in public/videos/,
