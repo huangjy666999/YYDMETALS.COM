@@ -6,7 +6,7 @@ export default function Ferrosulfur() {
     <ProductPage
       data={{
         name: 'Ferrosulfur',
-        bannerImg: images.ferrosulfur1,
+        bannerImg: images.ferrosulfur2,
         featureImg: images.ferrosulfur1,
         tagline: 'Sulfur-iron alloy for free-machining steels and controlled sulfur additions.',
         intro: 'Ferrosulfur is an iron-sulfur alloy used to introduce controlled amounts of sulfur into steel and iron. It is primarily used in the production of free-machining steels where sulfur improves machinability.',
@@ -32,6 +32,8 @@ export default function Ferrosulfur() {
           images.ferrosulfur1,
           images.ferrosulfur2,
           images.ferrosulfur3,
+          images.ferrosulfur4,
+          images.ferrosulfur5,
         ],
       }}
     />

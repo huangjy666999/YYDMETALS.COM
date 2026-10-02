@@ -1,15 +1,14 @@
 // ---------------------------------------------------------------------------
 // Image map for YYD METALS.
 //
-// IMPORTANT: the local paths below must match the real file names in
-// public/images/ EXACTLY, including capital letters. On the deployed site the
-// server is case-sensitive, so 'Ferrosilicon.jpg' and 'ferrosilicon.jpg' are two
-// different files. Each entry here was written to match a real file.
+// Every local path below was verified against the real file names in the
+// repository. On the deployed server paths are case-sensitive, so
+// 'Ferrosilicon.jpg' and 'ferrosilicon.jpg' are different files.
 //
 // Layout:
-//   public/images/products/    ferroalloy product photography
-//   public/images/resources/   scrap / secondary materials
-//   public/images/production/  production stills (also used as video posters)
+//   public/images/products/    ferroalloy product photography  (Capitals + spaces)
+//   public/images/resources/   scrap / secondary materials      (lower-case-hyphens)
+//   public/images/production/  production stills                (lower-case-hyphens)
 // ---------------------------------------------------------------------------
 
 export const images = {
@@ -46,9 +45,7 @@ export const images = {
   warehouse: 'https://images.pexels.com/photos/34207364/pexels-photo-34207364.jpeg?auto=compress&cs=tinysrgb&w=1200',
 
   // ------------------------- FERROALLOYS (public/images/products/) ----------
-  // NOTE: these names match the real files in the repository EXACTLY, including
-  // capital letters and spaces. Do not "tidy" them: on the deployed server the
-  // paths are case-sensitive, and the files really are named like this.
+  // These files really are named with capitals and spaces. Do not "tidy" them.
   ferrosilicon: '/images/products/Ferrosilicon.jpg',
   ferrosiliconHighGrade: '/images/products/High-silicon ferrosilicon.jpg',
 
@@ -61,21 +58,19 @@ export const images = {
   ferrophosphorusHighPurity1: '/images/products/High-purity ferrophosphorus.jpg',
   ferrophosphorusHighPurity2: '/images/products/High-purity ferrophosphorus 2.jpg',
 
-  // Ferrosulfur photos: plain lower-case names with no spaces, so no URL
-  // encoding is involved at all.
-  ferrosulfur1: '/images/products/ferrosulfur-1.jpg',
-  ferrosulfur2: '/images/products/ferrosulfur-2.jpg',
-  ferrosulfur3: '/images/products/ferrosulfur-3.jpg',
+  ferrosulfur1: '/images/products/Iron sulfide.jpg',
+  ferrosulfur2: '/images/products/Iron sulfide2.jpg',
+  ferrosulfur3: '/images/products/Iron sulfide3.jpg',
+  ferrosulfur4: '/images/products/Iron sulfide5.jpg',
+  ferrosulfur5: '/images/products/Iron sulfide6.jpg',
 
   // --------------- METAL SCRAP & RESOURCES (public/images/resources/) -------
-  // These four files really are named in lower case with hyphens in the repo.
   scrapSiliconWafers: '/images/resources/scrap-silicon-wafers.jpg',
   ferroalloyBriquettes: '/images/resources/ferroalloy-briquettes.jpg',
   copperNickelSludge: '/images/resources/copper-nickel-sludge.jpg',
   antimonyOre: '/images/resources/antimony-ore.jpg',
 
   // ----------------- PRODUCTION (public/images/production/) -----------------
-  // Also lower case with hyphens - verified against the repository listing.
   production1: '/images/production/production-1.jpg',
   production2: '/images/production/production-2.jpg',
   production3: '/images/production/production-3.jpg',
