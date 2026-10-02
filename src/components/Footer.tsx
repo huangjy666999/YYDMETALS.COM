@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { Mail, Phone, Globe, ArrowRight } from 'lucide-react'
+import { Mail, ArrowRight } from 'lucide-react'
+import { SocialLinks } from './SocialLinks'
 
 export default function Footer() {
   return (
@@ -11,10 +12,13 @@ export default function Footer() {
               <div className="brand__mark">Y</div>
               <div className="brand__text">
                 YYD METALS
-                <small>FERROALLOYS & RESOURCES</small>
+                <small>FERROALLOYS &amp; RESOURCES</small>
               </div>
             </div>
-            <p>Global ferroalloys, metals, minerals, and industrial resources. Supply. Source. Process. Trade.</p>
+            <p>
+              Global metals, minerals and ferroalloys. Production, processing, sourcing and supply
+              of alloys, metal products and secondary resources.
+            </p>
           </div>
 
           <div className="footer__col">
@@ -36,16 +40,47 @@ export default function Footer() {
 
           <div className="footer__col">
             <h4>Get in Touch</h4>
-            <Link to="/contact" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}><Mail size={15} /> Request a Quote</Link>
-            <Link to="/submit-material" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}><ArrowRight size={15} /> Submit Your Material</Link>
-            <span style={{ display: 'flex', gap: '8px', alignItems: 'center', color: 'var(--steel-200)', fontSize: '0.9rem', padding: '4px 0' }}><Globe size={15} /> yydmetals.com</span>
-            <span style={{ display: 'flex', gap: '8px', alignItems: 'center', color: 'var(--steel-200)', fontSize: '0.9rem', padding: '4px 0' }}><Phone size={15} /> +44 20 0000 0000</span>
+            <Link to="/contact" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+              <Mail size={15} /> Request a Quote
+            </Link>
+            <Link to="/submit-material" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+              <ArrowRight size={15} /> Submit Your Material
+            </Link>
+            <Link to="/contact" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+              <ArrowRight size={15} /> Online Inquiry
+            </Link>
+          </div>
+        </div>
+
+        {/* Social / messaging channels */}
+        <div style={{
+          borderTop: '1px solid var(--charcoal-600)',
+          paddingTop: '28px',
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '24px',
+          alignItems: 'flex-start',
+          justifyContent: 'space-between',
+        }}>
+          <div>
+            <h4 style={{ fontSize: '0.9rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--white)', marginBottom: '14px' }}>
+              Connect with Us
+            </h4>
+            <SocialLinks />
+          </div>
+          <div style={{ textAlign: 'right' }}>
+            <p style={{ color: 'var(--steel-300)', fontSize: '0.85rem', marginBottom: '10px' }}>
+              Looking for a quote or technical support?
+            </p>
+            <Link to="/contact" className="btn btn--primary" style={{ padding: '10px 20px', fontSize: '0.8rem' }}>
+              Contact Us <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
 
         <div className="footer__bottom">
-          <span>&copy; {new Date().getFullYear()} YYD METALS & MINERALS INDUSTRIES LTD. All rights reserved.</span>
-          <span>Supply. Source. Process. Trade.</span>
+          <span>&copy; {new Date().getFullYear()} YYD METALS &amp; MINERALS INDUSTRIES LTD. All rights reserved.</span>
+          <span>Metals, Minerals, Alloys &amp; Metallurgical Solutions.</span>
         </div>
       </div>
     </footer>

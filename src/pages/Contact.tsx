@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { Mail, Phone, Globe, MapPin, Send, CheckCircle } from 'lucide-react'
+import { Globe, MapPin, Send, CheckCircle } from 'lucide-react'
 import PageBanner from '../components/PageBanner'
+import { SocialLinks } from '../components/SocialLinks'
 import { images } from '../lib/images'
 import { getSupabase } from '../lib/supabase'
 
@@ -125,20 +126,6 @@ export default function Contact() {
               </p>
 
               <div className="contact-info-item">
-                <div className="contact-info-item__icon"><Mail size={18} /></div>
-                <div>
-                  <h4>Email</h4>
-                  <p>info@yydmetals.com</p>
-                </div>
-              </div>
-              <div className="contact-info-item">
-                <div className="contact-info-item__icon"><Phone size={18} /></div>
-                <div>
-                  <h4>Phone</h4>
-                  <p>+44 20 0000 0000</p>
-                </div>
-              </div>
-              <div className="contact-info-item">
                 <div className="contact-info-item__icon"><Globe size={18} /></div>
                 <div>
                   <h4>Website</h4>
@@ -151,6 +138,16 @@ export default function Contact() {
                   <h4>Head Office</h4>
                   <p>YYD Metals &amp; Minerals Industries Ltd.<br />London, United Kingdom</p>
                 </div>
+              </div>
+
+              <div style={{ marginTop: '28px' }}>
+                <h4 style={{ fontSize: '0.9rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--white)', marginBottom: '12px' }}>
+                  Message Us
+                </h4>
+                <p className="field-hint" style={{ marginBottom: '16px' }}>
+                  Reach our team directly through any of these channels.
+                </p>
+                <SocialLinks />
               </div>
             </div>
 
