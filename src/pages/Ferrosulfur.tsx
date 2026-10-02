@@ -18,7 +18,7 @@ export default function Ferrosulfur() {
           'Metallurgical processes requiring precise sulfur control',
         ],
         grades: [
-          { grade: 'FeS 50%', composition: 'S 48–55%, Fe balance, Si ≤ 3%, C ≤ 1%, P ≤ 0.1%' },
+          { grade: 'FeS 45%', composition: 'S 42–48%, Fe balance, Si ≤ 3%, C ≤ 1%, P ≤ 0.1%' },
           { grade: 'FeS 32%', composition: 'S 30–35%, Fe balance, Si ≤ 3%, C ≤ 1%, P ≤ 0.1%' },
           { grade: 'FeS 28%', composition: 'S 26–30%, Fe balance, Si ≤ 3%, C ≤ 1%, P ≤ 0.1%' },
         ],
