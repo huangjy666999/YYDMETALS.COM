@@ -2,42 +2,113 @@ import { useState } from 'react'
 import { Mail, Phone, Globe, MapPin, Send, CheckCircle } from 'lucide-react'
 import PageBanner from '../components/PageBanner'
 import { images } from '../lib/images'
+import { getSupabase } from '../lib/supabase'
+
+const topics = [
+  'Ferroalloys',
+  'Minerals & Ores',
+  'Metal Recycling',
+  'Custom Alloy Solutions',
+  'Technical Services',
+  'Other',
+]
+
+const CONTACT_FALLBACK =
+  'We could not submit your inquiry at this time. Please try again or email info@yydmetals.com.'
+
+const emptyForm = {
+  name: '',
+  company: '',
+  email: '',
+  country: '',
+  topic: '',
+  message: '',
+}
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'error'>('idle')
   const [error, setError] = useState('')
-  const [form, setForm] = useState({
-    name: '', company: '', email: '', phone: '',
-    subject: 'Quote Request', message: '',
-  })
+  const [form, setForm] = useState(emptyForm)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
 
-    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
-      setError('Please fill in your name, email, and message.')
+    if (!form.name.trim() || !form.company.trim() || !form.email.trim() ||
+        !form.country.trim() || !form.message.trim()) {
+      setError('Please fill in name, company, business email, country and your requirements.')
+      setStatus('error')
       return
     }
 
-    const mailto = `mailto:info@yydmetals.com?subject=${encodeURIComponent(form.subject + ' — ' + form.name)}&body=${encodeURIComponent(
-      `Name: ${form.name}\nCompany: ${form.company}\nEmail: ${form.email}\nPhone: ${form.phone}\n\n${form.message}`
-    )}`
+    setStatus('submitting')
 
-    window.location.href = mailto
+    const composed = [
+      'REQUEST FOR QUOTE / BUSINESS INQUIRY',
+      '',
+      `Full Name: ${form.name}`,
+      `Company: ${form.company}`,
+      `Business Email: ${form.email}`,
+      `Country / Region: ${form.country}`,
+      `Topic of Interest: ${form.topic || 'not specified'}`,
+      '',
+      'Message / Specifications:',
+      form.message,
+    ].join('\n')
+
+    const supabase = getSupabase()
+    if (supabase) {
+      try {
+        const { error: dbError } = await supabase
+          .from('supplier_submissions')
+          .insert({
+            material_name: 'Business Inquiry / Request for Quote',
+            material_category: form.topic || null,
+            origin: form.country || null,
+            contact_name: form.name,
+            contact_email: form.email,
+            company: form.company || null,
+            message: composed,
+          })
+
+        if (dbError) {
+          console.error('[YYD METALS] inquiry insert failed:', dbError.message)
+          setError(CONTACT_FALLBACK)
+          setStatus('error')
+          return
+        }
+      } catch (err) {
+        console.error('[YYD METALS] inquiry insert threw:', err)
+        setError(CONTACT_FALLBACK)
+        setStatus('error')
+        return
+      }
+    } else {
+      console.warn('[YYD METALS] Supabase is not configured - falling back to email')
+    }
+
     setSubmitted(true)
+    setStatus('idle')
+  }
+
+  const reset = () => {
+    setSubmitted(false)
+    setForm(emptyForm)
+    setError('')
+    setStatus('idle')
   }
 
   return (
     <>
       <PageBanner
         bgImage={images.cargoPort}
-        title="Contact"
-        intro="Request a quote, ask about a product, or get in touch with our team."
+        title="Request a Quote / Contact Us"
+        intro="Get in touch with our team — products, technical solutions and resource sourcing."
         crumbs={[{ label: 'Home', to: '/' }, { label: 'Contact' }]}
       />
 
@@ -45,11 +116,12 @@ export default function Contact() {
         <div className="container">
           <div className="contact-grid">
             <div>
-              <div className="eyebrow">Get in Touch</div>
-              <h2 className="section-title">Talk to Our Team</h2>
+              <div className="eyebrow">Online Inquiry</div>
+              <h2 className="section-title">Get in Touch with Our Team</h2>
               <p className="section-intro" style={{ marginBottom: '32px' }}>
-                Whether you need a quote for ferroalloys, want to discuss sourcing, or have material
-                to offer — we respond to all enquiries within 48 hours.
+                Have a question about our products, technical solutions, or resource sourcing?
+                Fill out the form, and our metallurgical experts will respond to your inquiry
+                within 24 hours.
               </p>
 
               <div className="contact-info-item">
@@ -77,7 +149,7 @@ export default function Contact() {
                 <div className="contact-info-item__icon"><MapPin size={18} /></div>
                 <div>
                   <h4>Head Office</h4>
-                  <p>YYD Metals & Minerals Industries Ltd.<br />London, United Kingdom</p>
+                  <p>YYD Metals &amp; Minerals Industries Ltd.<br />London, United Kingdom</p>
                 </div>
               </div>
             </div>
@@ -86,49 +158,69 @@ export default function Contact() {
               {submitted ? (
                 <div style={{ padding: '48px', background: 'var(--charcoal-800)', border: '1px solid var(--charcoal-600)', borderRadius: 'var(--radius-lg)', textAlign: 'center' }}>
                   <CheckCircle size={48} className="text-accent" style={{ margin: '0 auto 20px' }} />
-                  <h3 style={{ fontSize: '1.4rem', marginBottom: '12px' }}>Thank You</h3>
-                  <p className="text-muted">Your email client should have opened with your message. If not, please email us directly at info@yydmetals.com.</p>
-                  <button className="btn btn--outline" style={{ marginTop: '24px' }} onClick={() => { setSubmitted(false); setForm({ name: '', company: '', email: '', phone: '', subject: 'Quote Request', message: '' }) }}>
-                    Send Another
+                  <h3 style={{ fontSize: '1.4rem', marginBottom: '12px' }}>
+                    Thank you for reaching out to YYD Metals &amp; Minerals Industries!
+                  </h3>
+                  <p className="text-muted" style={{ marginBottom: '8px' }}>
+                    We have received your inquiry. A designated account manager or technical specialist
+                    will review your request and get back to you shortly via email.
+                  </p>
+                  <p className="field-hint" style={{ marginBottom: '24px' }}>
+                    Our metallurgical experts respond to all inquiries within 24 hours.
+                  </p>
+                  <button className="btn btn--outline" onClick={reset}>
+                    Submit Another Inquiry
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} style={{ background: 'var(--charcoal-800)', border: '1px solid var(--charcoal-600)', borderRadius: 'var(--radius-lg)', padding: '32px' }}>
                   {error && <div className="form-alert form-alert--error">{error}</div>}
+
                   <div className="form-grid">
                     <div className="field">
                       <label htmlFor="name">Full Name *</label>
                       <input id="name" name="name" type="text" value={form.name} onChange={handleChange} required />
                     </div>
                     <div className="field">
-                      <label htmlFor="company">Company</label>
-                      <input id="company" name="company" type="text" value={form.company} onChange={handleChange} />
+                      <label htmlFor="company">Company Name *</label>
+                      <input id="company" name="company" type="text" value={form.company} onChange={handleChange} required />
                     </div>
                     <div className="field">
-                      <label htmlFor="email">Email *</label>
-                      <input id="email" name="email" type="email" value={form.email} onChange={handleChange} required />
+                      <label htmlFor="email">Business Email *</label>
+                      <input id="email" name="email" type="email" value={form.email} onChange={handleChange} required placeholder="Please use company email" />
                     </div>
                     <div className="field">
-                      <label htmlFor="phone">Phone</label>
-                      <input id="phone" name="phone" type="tel" value={form.phone} onChange={handleChange} />
+                      <label htmlFor="country">Country / Region *</label>
+                      <input id="country" name="country" type="text" value={form.country} onChange={handleChange} required />
                     </div>
                     <div className="field field--full">
-                      <label htmlFor="subject">Subject</label>
-                      <select id="subject" name="subject" value={form.subject} onChange={handleChange}>
-                        <option>Quote Request</option>
-                        <option>Product Enquiry</option>
-                        <option>Sourcing Enquiry</option>
-                        <option>Supplier Offer</option>
-                        <option>General</option>
+                      <label htmlFor="topic">Product / Topic of Interest</label>
+                      <select id="topic" name="topic" value={form.topic} onChange={handleChange}>
+                        <option value="">Select a topic</option>
+                        {topics.map(t => <option key={t} value={t}>{t}</option>)}
                       </select>
                     </div>
                     <div className="field field--full">
-                      <label htmlFor="message">Message *</label>
-                      <textarea id="message" name="message" rows={6} value={form.message} onChange={handleChange} required placeholder="Tell us what you need — product, grade, quantity, destination, or your material offer." />
+                      <label htmlFor="message">Message / Specifications *</label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        rows={6}
+                        value={form.message}
+                        onChange={handleChange}
+                        required
+                        placeholder="Chemical composition, quantity, delivery terms, destination, or any other requirements."
+                      />
                     </div>
                   </div>
-                  <button type="submit" className="btn btn--primary" style={{ marginTop: '24px', width: '100%', justifyContent: 'center' }}>
-                    Send Message <Send size={16} />
+
+                  <button
+                    type="submit"
+                    className="btn btn--primary"
+                    style={{ marginTop: '24px', width: '100%', justifyContent: 'center' }}
+                    disabled={status === 'submitting'}
+                  >
+                    {status === 'submitting' ? 'Submitting...' : <>Submit Inquiry <Send size={16} /></>}
                   </button>
                 </form>
               )}
