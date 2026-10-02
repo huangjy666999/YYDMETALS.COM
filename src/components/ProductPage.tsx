@@ -10,9 +10,19 @@ interface ProductData {
   intro: string
   description: string
   applications: string[]
-  grades: { grade: string; composition: string }[]
   packaging: string[]
   gallery?: string[]
+
+  // Either use the simple two-column list ...
+  grades?: { grade: string; composition: string }[]
+  // ... or a full multi-column chemistry table.
+  specs?: {
+    title?: string
+    intro?: string
+    headers: string[]
+    rows: string[][]
+    footnote?: string
+  }
 }
 
 interface Props {
@@ -83,18 +93,58 @@ export default function ProductPage({ data }: Props) {
       <section className="section">
         <div className="container">
           <div className="eyebrow">Specifications</div>
-          <h2 className="section-title">Typical Grades & Composition</h2>
-          <p className="section-intro">Representative grades — custom specifications available on request.</p>
-          <table className="spec-table">
-            <thead>
-              <tr><th>Grade</th><th>Typical Composition</th></tr>
-            </thead>
-            <tbody>
-              {data.grades.map(g => (
-                <tr key={g.grade}><td>{g.grade}</td><td>{g.composition}</td></tr>
-              ))}
-            </tbody>
-          </table>
+          <h2 className="section-title">{data.specs?.title ?? 'Typical Grades & Composition'}</h2>
+          <p className="section-intro">
+            {data.specs?.intro ?? 'Representative grades — custom specifications available on request.'}
+          </p>
+
+          {/* Simple two-column list */}
+          {data.grades && data.grades.length > 0 && (
+            <table className="spec-table">
+              <thead>
+                <tr><th>Grade</th><th>Typical Composition</th></tr>
+              </thead>
+              <tbody>
+                {data.grades.map(g => (
+                  <tr key={g.grade}><td>{g.grade}</td><td>{g.composition}</td></tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+
+          {/* Full multi-column chemistry table */}
+          {data.specs && (
+            <div style={{ overflowX: 'auto', marginTop: '8px' }}>
+              <table className="spec-table" style={{ minWidth: '900px' }}>
+                <thead>
+                  <tr>
+                    {data.specs.headers.map((h, i) => (
+                      <th key={i} style={i === 0 ? undefined : { textAlign: 'center', whiteSpace: 'nowrap' }}>{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.specs.rows.map((row, ri) => (
+                    <tr key={ri}>
+                      {row.map((cell, ci) => (
+                        <td
+                          key={ci}
+                          style={ci === 0
+                            ? { whiteSpace: 'nowrap', color: 'var(--grey-100)' }
+                            : { textAlign: 'center', whiteSpace: 'nowrap' }}
+                        >
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              {data.specs.footnote && (
+                <p className="field-hint" style={{ marginTop: '12px' }}>{data.specs.footnote}</p>
+              )}
+            </div>
+          )}
 
           <div style={{ marginTop: '40px' }}>
             <h3 style={{ fontSize: '1.2rem', marginBottom: '12px' }}>Packaging & Delivery</h3>
