@@ -19,13 +19,14 @@ const materials = [
   { img: images.ferroalloyBriquettes, title: 'Ferroalloy Briquettes', desc: 'Pressed briquettes for controlled charging into furnaces and ladles.' },
   { img: images.copperNickelSludge, title: 'Copper-Nickel Sludge', desc: 'Cu-Ni bearing filter cake and treatment sludge with recoverable metal value.' },
   { img: images.antimonyOre, title: 'Antimony Ore', desc: 'Antimony-bearing ore and concentrates for smelting and refining.' },
+  { img: images.titanium, title: 'Titanium Material', desc: 'Titanium-bearing material for metal recovery and processing.' },
 ]
 
 export default function Resources() {
   return (
     <>
       <PageBanner
-        bgImage={images.scrapSiliconWafers}
+        bgImage={images.resourcesBanner}
         title="Metal Scrap & Resources"
         intro="Global sourcing and processing of metal-bearing secondary materials and industrial residues."
         crumbs={[{ label: 'Home', to: '/' }, { label: 'Metal Scrap & Resources' }]}

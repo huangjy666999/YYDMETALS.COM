@@ -19,7 +19,7 @@ export default function Sourcing() {
   return (
     <>
       <PageBanner
-        bgImage={images.cargoShip}
+        bgImage={images.sourcingBanner}
         title="Global Sourcing"
         intro="A worldwide network for sourcing ferroalloys, metal scrap, and industrial resources."
         crumbs={[{ label: 'Home', to: '/' }, { label: 'Global Sourcing' }]}

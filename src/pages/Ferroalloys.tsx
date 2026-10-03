@@ -14,7 +14,7 @@ export default function Ferroalloys() {
   return (
     <>
       <PageBanner
-        bgImage={images.ferrosilicon}
+        bgImage={images.ferroalloysBanner}
         title="Ferroalloys"
         intro="Primary alloys that drive steel, foundry, and specialty metallurgy worldwide."
         crumbs={[{ label: 'Home', to: '/' }, { label: 'Ferroalloys' }]}

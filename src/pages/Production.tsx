@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { ArrowRight, Factory, Warehouse } from 'lucide-react'
 import { images } from '../lib/images'
 
@@ -77,7 +77,7 @@ export default function Production() {
   return (
     <>
       <section className="page-banner">
-        <div className="page-banner__bg" style={{ backgroundImage: `url(${images.production1})` }} />
+        <div className="page-banner__bg" style={{ backgroundImage: `url(${images.productionBanner})` }} />
         <div className="page-banner__overlay" />
         <div className="container page-banner__content">
           <div className="breadcrumb"><Link to="/">Home</Link> / Production</div>
@@ -131,11 +131,6 @@ export default function Production() {
                 <li><Warehouse size={18} className="text-accent" /> <span>Container and breakbulk loading</span></li>
               </ul>
             </div>
-          </div>
-
-          <div className="production-note">
-            More production footage can be added later without changing the page structure.
-            Upload each MP4 to <strong>public/videos/</strong> and add it to the video list on this page.
           </div>
 
           <div style={{ marginTop: '40px' }}>

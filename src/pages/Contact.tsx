@@ -107,7 +107,7 @@ export default function Contact() {
   return (
     <>
       <PageBanner
-        bgImage={images.cargoPort}
+        bgImage={images.contactBanner}
         title="Request a Quote / Contact Us"
         intro="Get in touch with our team — products, technical solutions and resource sourcing."
         crumbs={[{ label: 'Home', to: '/' }, { label: 'Contact' }]}

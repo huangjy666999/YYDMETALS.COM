@@ -51,7 +51,7 @@ export default function About() {
   return (
     <>
       <PageBanner
-        bgImage={images.factoryFloor}
+        bgImage={images.aboutBanner}
         title="About YYD"
         intro="YYD Metals & Minerals Industries — metals, minerals, alloys and metallurgical solutions."
         crumbs={[{ label: 'Home', to: '/' }, { label: 'About YYD' }]}

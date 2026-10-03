@@ -40,9 +40,6 @@ export default function Ferrophosphorus() {
           images.ferrophosphorus1,
           images.ferrophosphorus2,
           images.ferrophosphorus3,
-          images.ferrophosphorusLump,
-          images.ferrophosphorusHighPurity1,
-          images.ferrophosphorusHighPurity2,
         ],
       }}
     />

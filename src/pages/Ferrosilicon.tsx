@@ -7,7 +7,7 @@ export default function Ferrosilicon() {
       data={{
         name: 'Ferrosilicon',
         bannerImg: images.ferrosilicon,
-        featureImg: images.ferrosiliconHighGrade,
+        featureImg: images.ferrosilicon,
         tagline: 'Deoxidation and alloying alloy for steel and cast iron production.',
         intro: 'Ferrosilicon is an alloy of iron and silicon, widely used as a deoxidizer and alloying element in steelmaking and cast iron production. It improves strength, hardness, and magnetic properties.',
         description: 'YYD METALS supplies ferrosilicon in multiple silicon contents, from foundry grades to high-purity low-titanium grades for specialty applications. Material is available in lump, crushed, and powder forms to suit different furnace and process requirements.',

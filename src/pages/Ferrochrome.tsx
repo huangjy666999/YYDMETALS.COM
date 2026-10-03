@@ -32,6 +32,8 @@ export default function Ferrochrome() {
         ],
         gallery: [
           images.ferrochrome,
+          images.ferrochrome2,
+          images.ferrochrome3,
         ],
       }}
     />

@@ -127,7 +127,7 @@ export default function SubmitMaterial() {
     return (
       <>
         <PageBanner
-          bgImage={images.scrapExcavator}
+          bgImage={images.submitMaterialBanner}
           title="Submit Your Material"
           crumbs={[{ label: 'Home', to: '/' }, { label: 'Submit Your Material' }]}
         />
@@ -149,7 +149,7 @@ export default function SubmitMaterial() {
   return (
     <>
       <PageBanner
-        bgImage={images.scrapExcavator}
+        bgImage={images.submitMaterialBanner}
         title="Submit Your Material"
         intro="Tell us about the material you have available. Our sourcing team will evaluate your offer."
         crumbs={[{ label: 'Home', to: '/' }, { label: 'Submit Your Material' }]}

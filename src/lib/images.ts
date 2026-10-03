@@ -14,7 +14,7 @@
 
 export const images = {
   // Licensed stock photography (Pexels) - generic industry backdrops only.
-  heroMolten: 'https://images.pexels.com/photos/6804258/pexels-photo-6804258.jpeg?auto=compress&cs=tinysrgb&w=1600',
+  heroMolten: '/images/banners/HOME.jpg',
   furnaceFlames: 'https://images.pexels.com/photos/8803237/pexels-photo-8803237.jpeg?auto=compress&cs=tinysrgb&w=1600',
   moltenPouring: 'https://images.pexels.com/photos/6804265/pexels-photo-6804265.jpeg?auto=compress&cs=tinysrgb&w=1200',
   foundryWorkers: 'https://images.pexels.com/photos/37574797/pexels-photo-37574797.jpeg?auto=compress&cs=tinysrgb&w=1600',
@@ -51,22 +51,24 @@ export const images = {
   // paths are case-sensitive, and the files really are named like this.
   ferrosilicon: '/images/products/Ferrosilicon.jpg',
   ferrosilicon2: '/images/products/Ferrosilicon2.jpg',
-  ferrosiliconHighGrade: '/images/products/High-silicon ferrosilicon.jpg',
+  ferrosiliconHighGrade: '/images/products/Ferrosilicon1.jpg',
 
   ferrochrome: '/images/products/Ferrochrome.jpg',
+  ferrochrome2: '/images/products/Ferrochrome1.jpg',
+  ferrochrome3: '/images/products/Ferrochrome2.jpg',
 
   ferrophosphorus1: '/images/products/Ferrophosphorus.jpg',
-  ferrophosphorus2: '/images/products/Ferrophosphorus6.jpg',
-  ferrophosphorus3: '/images/products/Ferrophosphorus7.jpg',
-  ferrophosphorusLump: '/images/products/Ferrophosphorus3.jpg',
-  ferrophosphorusHighPurity1: '/images/products/High-purity ferrophosphorus.jpg',
-  ferrophosphorusHighPurity2: '/images/products/High-purity ferrophosphorus 2.jpg',
+  ferrophosphorus2: '/images/products/Ferrophosphorus1.jpg',
+  ferrophosphorus3: '/images/products/Ferrophosphorus2.jpg',
+  ferrophosphorusLump: '/images/products/Ferrophosphorus2.jpg',
+  ferrophosphorusHighPurity1: '/images/products/Ferrophosphorus1.jpg',
+  ferrophosphorusHighPurity2: '/images/products/Ferrophosphorus2.jpg',
 
   // Ferrosulfur photos: plain lower-case names with no spaces, so no URL
   // encoding is involved at all.
-  ferrosulfur1: '/images/products/ferrosulfur-1.jpg',
-  ferrosulfur2: '/images/products/ferrosulfur-2.jpg',
-  ferrosulfur3: '/images/products/ferrosulfur-3.jpg',
+  ferrosulfur1: '/images/products/Iron.jpg',
+  ferrosulfur2: '/images/products/Iron1.jpg',
+  ferrosulfur3: '/images/products/Iron2.jpg',
 
   // --------------- METAL SCRAP & RESOURCES (public/images/resources/) -------
   // These four files really are named in lower case with hyphens in the repo.
@@ -74,6 +76,16 @@ export const images = {
   ferroalloyBriquettes: '/images/resources/ferroalloy-briquettes.jpg',
   copperNickelSludge: '/images/resources/copper-nickel-sludge.jpg',
   antimonyOre: '/images/resources/antimony-ore.jpg',
+  titanium: '/images/resources/titanium.jpg',
+
+  // ------------------------------ PAGE BANNERS -----------------------------
+  ferroalloysBanner: '/images/banners/PAGE1.jpg',
+  resourcesBanner: '/images/banners/PAGE2.jpg',
+  productionBanner: '/images/banners/PAGE3.jpg',
+  sourcingBanner: '/images/banners/PAGE4.jpg',
+  aboutBanner: '/images/banners/PAGE5.jpg',
+  contactBanner: '/images/banners/PAGE6.jpg',
+  submitMaterialBanner: '/images/banners/PAGE7.jpg',
 
   // ----------------- PRODUCTION (public/images/production/) -----------------
   // production-2.jpg and production-3.jpg were removed on purpose, so the two
