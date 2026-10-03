@@ -9,7 +9,7 @@ const videos = [
     titleCn: '电弧炉生产',
     description: 'Electric arc furnace operations: scrap charging, melting and high-temperature alloy production.',
     file: '/videos/Electric-Arc-Furnace-Production.mp4',
-    poster: images.production1,
+    poster: images.productionBanner,
     meta: 'Production Process',
   },
   {
@@ -17,7 +17,7 @@ const videos = [
     titleCn: '高炉生产',
     description: 'Blast furnace smelting and continuous tapping of molten metal for downstream processing.',
     file: '/videos/Blast-furnace-production.mp4',
-    poster: images.production1,
+    poster: images.productionBanner,
     meta: 'Production Process',
   },
   {
@@ -115,8 +115,7 @@ export default function Production() {
           </div>
 
           {/* Facility & logistics */}
-          <div className="feature-row" style={{ marginTop: '64px' }}>
-            <div className="feature-row__img" style={{ backgroundImage: `url(${images.productionWarehouse})` }} />
+          <div className="feature-row feature-row--single" style={{ marginTop: '64px' }}>
             <div className="prose">
               <div className="eyebrow">Warehouse &amp; Logistics</div>
               <h2 className="section-title">Stored, packed, and ready to ship</h2>

@@ -1,4 +1,4 @@
-// ---------------------------------------------------------------------------
+﻿// ---------------------------------------------------------------------------
 // Image map for YYD METALS.
 //
 // IMPORTANT: the local paths below must match the real file names in
@@ -9,7 +9,6 @@
 // Layout:
 //   public/images/products/    ferroalloy product photography
 //   public/images/resources/   scrap / secondary materials
-//   public/images/production/  production stills (also used as video posters)
 // ---------------------------------------------------------------------------
 
 export const images = {
@@ -86,10 +85,4 @@ export const images = {
   aboutBanner: '/images/banners/PAGE5.jpg',
   contactBanner: '/images/banners/PAGE6.jpg',
   submitMaterialBanner: '/images/banners/PAGE7.jpg',
-
-  // ----------------- PRODUCTION (public/images/production/) -----------------
-  // production-2.jpg and production-3.jpg were removed on purpose, so the two
-  // video posters use these stills instead.
-  production1: '/images/production/production-1.jpg',
-  productionWarehouse: '/images/production/warehouse.jpg',
 }
