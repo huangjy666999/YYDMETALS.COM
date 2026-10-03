@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { ArrowRight, Target, Eye, Leaf, Factory, Beaker, Globe2, Recycle, Package, Wrench, Settings } from 'lucide-react'
 import PageBanner from '../components/PageBanner'
 import { images } from '../lib/images'
@@ -110,7 +110,7 @@ export default function About() {
       {/* From resources to metal products */}
       <section className="section">
         <div className="container">
-          <div className="feature-row">
+          <div className="feature-row feature-row--single">
             <div className="prose">
               <div className="eyebrow">From Resources to Metal Products</div>
               <h2 className="section-title">Global resources, metallurgical technology, industrial production</h2>
@@ -129,7 +129,6 @@ export default function About() {
                 practical metallurgical solutions.
               </p>
             </div>
-            <div className="feature-row__img" style={{ backgroundImage: `url(${images.productionWarehouse})` }} />
           </div>
         </div>
       </section>

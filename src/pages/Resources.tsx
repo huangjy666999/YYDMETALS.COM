@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { ArrowRight, Recycle, Factory, Beaker, Boxes } from 'lucide-react'
 import PageBanner from '../components/PageBanner'
 import { images } from '../lib/images'
@@ -81,8 +81,7 @@ export default function Resources() {
 
       <section className="section">
         <div className="container">
-          <div className="feature-row">
-            <div className="feature-row__img" style={{ backgroundImage: `url(${images.productionWarehouse})` }} />
+          <div className="feature-row feature-row--single">
             <div className="prose">
               <div className="eyebrow">Our Process</div>
               <h2 className="section-title">From generator to consumer</h2>

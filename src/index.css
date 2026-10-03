@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --charcoal-900: #0e1014;
   --charcoal-800: #161a20;
   --charcoal-700: #1d222a;
@@ -210,6 +210,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .resource-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
 .resource-card p { color: var(--steel-200); font-size: 0.9rem; }
 .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.feature-row--single { grid-template-columns: minmax(0, 1fr); }
 @media (max-width: 800px) { .feature-row { grid-template-columns: 1fr; gap: 32px; } }
 .feature-row__img { height: 380px; border-radius: var(--radius-lg); background-size: cover; background-position: center; }
 .feature-list { list-style: none; margin-top: 20px; }
