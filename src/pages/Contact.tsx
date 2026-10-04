@@ -4,6 +4,7 @@ import PageBanner from '../components/PageBanner'
 import { SocialLinks } from '../components/SocialLinks'
 import { images } from '../lib/images'
 import { getSupabase } from '../lib/supabase'
+import { sendWeb3Form } from '../lib/web3forms'
 
 const topics = [
   'Ferroalloys',
@@ -62,6 +63,20 @@ export default function Contact() {
       form.message,
     ].join('\n')
 
+    try {
+      await sendWeb3Form({
+        subject: `Website inquiry from ${form.name}`,
+        fromName: form.name,
+        replyTo: form.email,
+        message: composed,
+      })
+    } catch (err) {
+      console.error('[YYD METALS] inquiry email failed:', err)
+      setError(err instanceof Error ? err.message : CONTACT_FALLBACK)
+      setStatus('error')
+      return
+    }
+
     const supabase = getSupabase()
     if (supabase) {
       try {
@@ -77,20 +92,10 @@ export default function Contact() {
             message: composed,
           })
 
-        if (dbError) {
-          console.error('[YYD METALS] inquiry insert failed:', dbError.message)
-          setError(CONTACT_FALLBACK)
-          setStatus('error')
-          return
-        }
+        if (dbError) console.warn('[YYD METALS] inquiry email sent; database logging failed:', dbError.message)
       } catch (err) {
-        console.error('[YYD METALS] inquiry insert threw:', err)
-        setError(CONTACT_FALLBACK)
-        setStatus('error')
-        return
+        console.warn('[YYD METALS] inquiry email sent; database logging threw:', err)
       }
-    } else {
-      console.warn('[YYD METALS] Supabase is not configured - falling back to email')
     }
 
     setSubmitted(true)

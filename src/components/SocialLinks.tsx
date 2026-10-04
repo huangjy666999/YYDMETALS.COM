@@ -1,26 +1,16 @@
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, MessageCircle } from 'lucide-react'
+import { Facebook, Twitter, Instagram, Linkedin, MessageCircle } from 'lucide-react'
 
 // ---------------------------------------------------------------------------
 // Social / messaging channels, used by the footer and the contact page.
 //
-// TODO: replace each '#' with the real profile or chat link, for example:
-//     href: 'https://www.facebook.com/yourpage'
-//     href: 'https://zalo.me/84901234567'
-//     href: 'https://line.me/ti/p/~yourid'
-//     href: 'https://wa.me/8613800000000'
-//
-// Entries still set to '#' link to the top of the page, so nothing breaks
-// before the real links are filled in. Delete any entry you do not use.
-// ---------------------------------------------------------------------------
 export const socials = [
+  { key: 'whatsapp',  label: 'WhatsApp',    href: 'https://wa.me/84865901028' },
+  { key: 'line',      label: 'LINE',        href: 'https://line.me/R/nv/addFriends' },
+  { key: 'linkedin',  label: 'LinkedIn · HUANG JERRY', href: 'https://www.linkedin.com/search/results/people/?keywords=HUANG%20JERRY' },
+  { key: 'zalo',      label: 'Zalo',        href: 'https://zalo.me/84865901028' },
   { key: 'facebook',  label: 'Facebook',    href: '#' },
   { key: 'twitter',   label: 'X (Twitter)', href: '#' },
   { key: 'instagram', label: 'Instagram',   href: '#' },
-  { key: 'linkedin',  label: 'LinkedIn',    href: '#' },
-  { key: 'youtube',   label: 'YouTube',     href: '#' },
-  { key: 'whatsapp',  label: 'WhatsApp',    href: '#' },
-  { key: 'line',      label: 'LINE',        href: '#' },
-  { key: 'zalo',      label: 'Zalo',        href: '#' },
 ]
 
 // --- brand marks that are not part of the icon library ----------------------
@@ -44,8 +34,9 @@ function LineMark() {
 
 function ZaloMark() {
   return (
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
-      <path d="M12 2.6C6.42 2.6 1.9 6.3 1.9 10.86c0 2.4 1.24 4.56 3.2 6.03v3.4c0 .38.43.58.72.35l3.14-2.44c.94.24 1.95.37 3.04.37 5.58 0 10.1-3.7 10.1-8.26S17.58 2.6 12 2.6zm-4.9 10.9H5.3a.46.46 0 0 1-.46-.46V8.63a.46.46 0 0 1 .92 0v3.95h1.34a.46.46 0 0 1 0 .92zm1.7-.46a.46.46 0 0 1-.92 0V8.63a.46.46 0 0 1 .92 0v4.41zm5.16 0a.46.46 0 0 1-.87.25l-1.97-2.98v2.73a.46.46 0 0 1-.92 0V8.63a.46.46 0 0 1 .87-.25l1.97 2.98V8.63a.46.46 0 0 1 .92 0v4.41zm5.4-.46a.46.46 0 0 1-.46.46h-.03c-.12.02-.3.05-.5.05-1.16 0-2.1-.94-2.1-2.1s.94-2.1 2.1-2.1c.2 0 .38.03.5.05h.03a.46.46 0 1 1 0 .92h-.03a2 2 0 0 0-.36-.03c-.65 0-1.18.52-1.18 1.16s.53 1.16 1.18 1.16c.13 0 .24-.01.36-.03h.03a.46.46 0 0 1 .46.46z" />
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+      <rect x="1" y="3" width="22" height="18" rx="6" fill="#0068ff" />
+      <text x="3.1" y="14.8" fill="#fff" fontSize="7.3" fontWeight="700" fontFamily="Arial, sans-serif">Zalo</text>
     </svg>
   )
 }
@@ -56,7 +47,6 @@ export function SocialIcon({ name }: { name: string }) {
     case 'twitter':   return <Twitter size={18} />
     case 'instagram': return <Instagram size={18} />
     case 'linkedin':  return <Linkedin size={18} />
-    case 'youtube':   return <Youtube size={18} />
     case 'whatsapp':  return <WhatsAppMark />
     case 'line':      return <LineMark />
     case 'zalo':      return <ZaloMark />

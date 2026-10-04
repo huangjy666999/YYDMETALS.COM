@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle, Upload, X } from 'lucide-react'
 import PageBanner from '../components/PageBanner'
 import { images } from '../lib/images'
 import { getSupabase } from '../lib/supabase'
+import { sendWeb3Form } from '../lib/web3forms'
 
 const CONTACT_FALLBACK =
   'We could not submit your offer at this time. Please try again or email info@yydmetals.com.'
@@ -70,21 +71,46 @@ export default function SubmitMaterial() {
       return
     }
 
-    // Never assume the backend is configured: fail with a readable message
-    // instead of throwing.
-    const supabase = getSupabase()
-    if (!supabase) {
-      setError(CONTACT_FALLBACK)
+    setStatus('submitting')
+
+    try {
+      const message = [
+        'MATERIAL OFFER / SUPPLIER SUBMISSION',
+        '',
+        `Material: ${form.material_name}`,
+        `Category: ${form.material_category || 'not specified'}`,
+        `Origin: ${form.origin || 'not specified'}`,
+        `Quantity: ${form.quantity || 'not specified'}`,
+        `Current location: ${form.location || 'not specified'}`,
+        `Availability: ${form.availability || 'not specified'}`,
+        `Chemical analysis: ${form.chemical_analysis || 'not specified'}`,
+        `Photo links: ${photoUrls.length ? photoUrls.join(', ') : 'none'}`,
+        '',
+        `Contact name: ${form.contact_name}`,
+        `Company: ${form.company || 'not specified'}`,
+        `Email: ${form.contact_email}`,
+        `Phone: ${form.contact_phone || 'not specified'}`,
+        '',
+        `Additional notes: ${form.message || 'none'}`,
+      ].join('\n')
+
+      await sendWeb3Form({
+        subject: `Material offer: ${form.material_name}`,
+        fromName: form.contact_name,
+        replyTo: form.contact_email,
+        message,
+      })
+    } catch (err) {
+      console.error('[YYD METALS] material offer email failed:', err)
+      setError(err instanceof Error ? err.message : CONTACT_FALLBACK)
       setStatus('error')
       return
     }
 
-    setStatus('submitting')
-
-    try {
-      const { error: dbError } = await supabase
-        .from('supplier_submissions')
-        .insert({
+    const supabase = getSupabase()
+    if (supabase) {
+      try {
+        const { error: dbError } = await supabase.from('supplier_submissions').insert({
           material_name: form.material_name,
           material_category: form.material_category || null,
           origin: form.origin || null,
@@ -99,18 +125,10 @@ export default function SubmitMaterial() {
           company: form.company || null,
           message: form.message || null,
         })
-
-      if (dbError) {
-        console.error('[YYD METALS] submission failed:', dbError.message)
-        setError(CONTACT_FALLBACK)
-        setStatus('error')
-        return
+        if (dbError) console.warn('[YYD METALS] offer email sent; database logging failed:', dbError.message)
+      } catch (err) {
+        console.warn('[YYD METALS] offer email sent; database logging threw:', err)
       }
-    } catch (err) {
-      console.error('[YYD METALS] submission threw:', err)
-      setError(CONTACT_FALLBACK)
-      setStatus('error')
-      return
     }
 
     setStatus('success')
