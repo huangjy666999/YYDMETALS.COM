@@ -175,7 +175,7 @@ export default function SubmitMaterial() {
 
       <section className="section">
         <div className="container" style={{ maxWidth: '900px' }}>
-          <form onSubmit={handleSubmit} style={{ background: 'var(--charcoal-800)', border: '1px solid var(--charcoal-600)', borderRadius: 'var(--radius-lg)', padding: '36px' }}>
+          <form translate="no" onSubmit={handleSubmit} style={{ background: 'var(--charcoal-800)', border: '1px solid var(--charcoal-600)', borderRadius: 'var(--radius-lg)', padding: '36px' }}>
             {error && <div className="form-alert form-alert--error">{error}</div>}
 
             <h3 style={{ fontSize: '1.2rem', marginBottom: '20px' }}>Material Details</h3>
