@@ -74,7 +74,10 @@ export default function Home() {
         <div className="hero__overlay" />
         <div className="container hero__content">
           <div className="hero__copy">
-            <div className="hero__tagline">YYD METALS &amp; MINERALS INDUSTRIES</div>
+            <div className="hero__brand-lockup">
+              <img className="hero__logo" src="/images/brand/yyd-dimensional.png" alt="YYD Metals dimensional blue and gold logo" />
+              <div className="hero__brand-name">YYD METALS &amp; MINERALS INDUSTRIES LTD.</div>
+            </div>
             <h1 className="hero__title">
               Metals, Minerals, Alloys<br />&amp; <span>Metallurgical Solutions</span>
             </h1>
@@ -84,7 +87,6 @@ export default function Home() {
               <Link to="/submit-material" className="btn btn--outline">Submit Your Material</Link>
             </div>
           </div>
-          <img className="hero__logo" src="/images/brand/yyd-dimensional.png" alt="YYD Metals dimensional blue and gold logo" />
         </div>
       </section>
 
