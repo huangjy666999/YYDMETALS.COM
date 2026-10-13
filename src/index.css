@@ -170,12 +170,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .hero__logo {
   display: block; width: 210px; height: 210px; flex: 0 0 210px;
-  object-fit: cover; border-radius: 50%; padding: 5px;
-  border: 2px solid transparent;
-  background: linear-gradient(#0e1520, #0e1520) padding-box,
-    linear-gradient(145deg, #8bd9ff 0%, #eff8ff 18%, #d99c28 40%, #fff0a3 58%, #9f5f15 78%, #7bd7ff 100%) border-box;
-  box-shadow: 0 0 0 1px rgba(255, 235, 174, 0.34) inset,
-    0 14px 38px rgba(0, 0, 0, 0.48), 0 0 30px rgba(45, 126, 255, 0.2);
+  object-fit: contain; border-radius: 0; padding: 0; border: 0; background: transparent;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.48))
+    drop-shadow(0 0 22px rgba(45, 126, 255, 0.22));
 }
 .hero__brand-name {
   position: relative; max-width: 620px; padding-bottom: 18px;
@@ -183,7 +180,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   letter-spacing: 0.1em; line-height: 1.16; text-wrap: balance;
   background: linear-gradient(112deg, #fff9d9 0%, #f6d979 16%, #bd7919 34%, #fff4bd 49%, #d59a2e 65%, #fff1a4 82%, #b36a16 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 0 rgba(75, 42, 7, 0.88)) drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
+  -webkit-text-stroke: 0.45px rgba(255, 242, 187, 0.7);
+  text-shadow: 0 1px 0 #fff2b3, 0 2px 0 #d99b2f, 0 3px 0 #a36113,
+    0 4px 0 #71430b, 0 7px 12px rgba(0, 0, 0, 0.78), 0 0 22px rgba(233, 177, 61, 0.28);
+  filter: drop-shadow(0 5px 9px rgba(0, 0, 0, 0.42));
 }
 .hero__brand-name::after {
   content: ''; position: absolute; left: 0; bottom: 3px; width: min(230px, 68%); height: 2px;
