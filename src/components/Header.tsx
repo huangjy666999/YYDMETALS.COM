@@ -28,7 +28,7 @@ export default function Header() {
       <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
         <div className="container header__inner">
           <Link to="/" className="brand">
-            <div className="brand__mark">Y</div>
+            <img className="brand__mark" src="/images/brand/yyd-official.png" alt="YYD Metals official logo" />
             <div className="brand__text">
               YYD METALS
               <small>FERROALLOYS & RESOURCES</small>

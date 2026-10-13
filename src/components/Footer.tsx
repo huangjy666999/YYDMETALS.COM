@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="footer__grid">
           <div className="footer__brand">
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <div className="brand__mark">Y</div>
+              <img className="brand__mark" src="/images/brand/yyd-official.png" alt="YYD Metals official logo" />
               <div className="brand__text">
                 YYD METALS
                 <small>FERROALLOYS &amp; RESOURCES</small>

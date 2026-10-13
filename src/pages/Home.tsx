@@ -73,15 +73,18 @@ export default function Home() {
         <div className="hero__bg" style={{ backgroundImage: `url(${images.heroMolten})` }} />
         <div className="hero__overlay" />
         <div className="container hero__content">
-          <div className="hero__tagline">YYD METALS &amp; MINERALS INDUSTRIES</div>
-          <h1 className="hero__title">
-            Metals, Minerals, Alloys<br />&amp; <span>Metallurgical Solutions</span>
-          </h1>
-          <div className="hero__sub">Supply. Source. Process. Trade.</div>
-          <div className="hero__actions">
-            <Link to="/contact" className="btn btn--primary">Request a Quote <ArrowRight size={18} /></Link>
-            <Link to="/submit-material" className="btn btn--outline">Submit Your Material</Link>
+          <div className="hero__copy">
+            <div className="hero__tagline">YYD METALS &amp; MINERALS INDUSTRIES</div>
+            <h1 className="hero__title">
+              Metals, Minerals, Alloys<br />&amp; <span>Metallurgical Solutions</span>
+            </h1>
+            <div className="hero__sub">Supply. Source. Process. Trade.</div>
+            <div className="hero__actions">
+              <Link to="/contact" className="btn btn--primary">Request a Quote <ArrowRight size={18} /></Link>
+              <Link to="/submit-material" className="btn btn--outline">Submit Your Material</Link>
+            </div>
           </div>
+          <img className="hero__logo" src="/images/brand/yyd-dimensional.png" alt="YYD Metals dimensional blue and gold logo" />
         </div>
       </section>
 
